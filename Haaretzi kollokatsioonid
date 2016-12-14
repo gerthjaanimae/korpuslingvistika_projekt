@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Võtan analüüsi laused, kus sisaldub sõna "apartheid" ja "Israel"
+# Asendan realõpud märgiga #, et hiljem saaks sõnapaaride analüüsis piirduda ühe lausega.
+# Kustutan üleliigsed märgendid.
+# Asendan tühikud reavahetustega, et igal real oleks üks sõna.
+# Kustutan tühjaks jäänud read.
+# Lisan iga lause lõppu neli tühikut, et oleks võimalik moodustada sõnapaare.
+
+cat haaretz_uudised_tok.txt
+
+grep 'apartheid' | grep 'Israel' \
+| tr '[A-Z]' '[a-z]' \
+| sed 's/$/#/' \
+| tr -d '\.\,\?\!\:\"\“\”\(\)\;' \
+| tr ' ' '\n' \
+| grep -v '^$' \
+| sed 's/#/\n\n\n\n\n/' > haaretz_uudisteread.txt
+
+# Kustutan faili esimese sõna ja kordan seda tegevust veel viis korda, et analüüsitavate sõnapaaride vahel oleks 0-5 sõna.
+
+cat haaretz_uudisteread.txt | tail -n +2 > haaretz_uudisteread-1.txt
+cat haaretz_uudisteread.txt | tail -n +3 > haaretz_uudisteread-2.txt
+cat haaretz_uudisteread.txt | tail -n +4 > haaretz_uudisteread-3.txt
+cat haaretz_uudisteread.txt | tail -n +5 > haaretz_uudisteread-4.txt
+cat haaretz_uudisteread.txt | tail -n +6 > haaretz_uudisteread-5.txt
+cat haaretz_uudisteread.txt | tail -n +7 > haaretz_uudisteread-6.txt
+
+# Lisan kõik tekkinud sõnapaarid ühte sõnapaaride faili.
+
+paste haaretz_uudisteread.txt haaretz_uudisteread-1.txt > haaretz_uudistepaarid.txt
+paste haaretz_uudisteread.txt haaretz_uudisteread-2.txt >> haaretz_uudistepaarid.txt
+paste haaretz_uudisteread.txt haaretz_uudisteread-3.txt >> haaretz_uudistepaarid.txt
+paste haaretz_uudisteread.txt haaretz_uudisteread-4.txt >> haaretz_uudistepaarid.txt
+paste haaretz_uudisteread.txt haaretz_uudisteread-5.txt >> haaretz_uudistepaarid.txt
+paste haaretz_uudisteread.txt haaretz_uudisteread-6.txt >> haaretz_uudistepaarid.txt
+
+# Analüüsin ainult neid sõnapaare, milles sisaldub sõna "apartheid"
+# Asendan need tulemused, kus paare ei moodustunud, märgiga # ja siis kustutan need read.
+# Asendan paaride vahed reavahega, et jätta analüüsiks alles vaid sõnaga "apartheid" koos esinevad sõnad.
+# Sorteerin tulemused esinemise sageduse järjekorras.
+
+cat haaretz_uudistepaarid.txt \
+| grep '[^\t]*apartheid[^\t]*' \
+| sed 's/^.*apartheid.*\t$/#/' \
+| sed 's/^\t.*apartheid.*$/#/' \
+| grep -v '#' \
+| tr '\t' '\n' \
+| grep -v 'apartheid' \
+| sort | uniq -c | sort -nr
