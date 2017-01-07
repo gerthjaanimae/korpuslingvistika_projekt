@@ -39,19 +39,19 @@ cat jewish.txt|./aasta.sh 2006 > jewish_2006.txt
 
 # Liidan Haaretzi kahe uudisterubriigi artiklid üheks uudistekategooriaks aastate kaupa
 
-paste jewish_2006.txt news_2006.txt > Haaretz_news_2006.txt
-paste jewish_2007.txt news_2007.txt > Haaretz_news_2007.txt
-paste jewish_2008.txt news_2008.txt > Haaretz_news_2008.txt
-paste jewish_2009.txt news_2009.txt > Haaretz_news_2009.txt
-paste jewish_2010.txt news_2010.txt > Haaretz_news_2010.txt
-paste jewish_2011.txt news_2011.txt > Haaretz_news_2012.txt
-paste jewish_2011.txt news_2011.txt > Haaretz_news_2011.txt
-paste jewish_2012.txt news_2012.txt > Haaretz_news_2012.txt
-paste jewish_2012.txt news_2013.txt > Haaretz_news_2013.txt
-paste jewish_2013.txt news_2013.txt > Haaretz_news_2013.txt
-paste jewish_2014.txt news_2014.txt > Haaretz_news_2014.txt
-paste jewish_2015.txt news_2015.txt > Haaretz_news_2015.txt
-paste jewish_2016.txt news_2016.txt > Haaretz_news_2016.txt
+cat jewish_2006.txt news_2006.txt > Haaretz_news_2006.txt
+cat jewish_2007.txt news_2007.txt > Haaretz_news_2007.txt
+cat jewish_2008.txt news_2008.txt > Haaretz_news_2008.txt
+cat jewish_2009.txt news_2009.txt > Haaretz_news_2009.txt
+cat jewish_2010.txt news_2010.txt > Haaretz_news_2010.txt
+cat jewish_2011.txt news_2011.txt > Haaretz_news_2012.txt
+cat jewish_2011.txt news_2011.txt > Haaretz_news_2011.txt
+cat jewish_2012.txt news_2012.txt > Haaretz_news_2012.txt
+cat jewish_2012.txt news_2013.txt > Haaretz_news_2013.txt
+cat jewish_2013.txt news_2013.txt > Haaretz_news_2013.txt
+cat jewish_2014.txt news_2014.txt > Haaretz_news_2014.txt
+cat jewish_2015.txt news_2015.txt > Haaretz_news_2015.txt
+cat jewish_2016.txt news_2016.txt > Haaretz_news_2016.txt
 
 # Liidan The Jerusalem Posti rubriikide artiklid aastate kaupa
 
@@ -91,40 +91,38 @@ cat National-News.txt|./aasta.sh 2015 > National-News_2015.txt
 cat National-News.txt|./aasta.sh 2016 > National-News_2016.txt
 
 # Liidan The Jerusalem Posti uudisterubriikide artiklid kokku uudisterubriigiks
-  
-paste Israel_2006.txt National-News_2006.txt > Post_news_2006.txt
-paste Israel_2007.txt National-News_2007.txt > Post_news_2007.txt
-paste Israel_2008.txt National-News_2008.txt > Post_news_2008.txt
-paste Israel_2009.txt National-News_2009.txt > Post_news_2009.txt
-paste Israel_2010.txt National-News_2010.txt > Post_news_2010.txt
-paste Israel_2011.txt National-News_2011.txt > Post_news_2011.txt
-paste Israel_2012.txt National-News_2012.txt > Post_news_2012.txt
-paste Israel_2013.txt National-News_2013.txt > Post_news_2013.txt
-paste Israel_2014.txt National-News_2014.txt > Post_news_2014.txt
-paste Israel_2015.txt National-News_2015.txt > Post_news_2015.txt
-paste Israel_2016.txt National-News_2016.txt > Post_news_2016.txt
-
+cat Israel_2006.txt National-News_2006.txt > Post_news_2006.txt
+cat Israel_2007.txt National-News_2007.txt > Post_news_2007.txt
+cat Israel_2008.txt National-News_2008.txt > Post_news_2008.txt
+cat Israel_2009.txt National-News_2009.txt > Post_news_2009.txt
+cat Israel_2010.txt National-News_2010.txt > Post_news_2010.txt
+cat Israel_2011.txt National-News_2011.txt > Post_news_2011.txt
+cat Israel_2012.txt National-News_2012.txt > Post_news_2012.txt
+cat Israel_2013.txt National-News_2013.txt > Post_news_2013.txt
+cat Israel_2014.txt National-News_2014.txt > Post_news_2014.txt
+cat Israel_2015.txt National-News_2015.txt > Post_news_2015.txt
+cat Israel_2016.txt National-News_2016.txt > Post_news_2016.txt
 
 
 # Loon Haaretzi ja Jerusalem Posti artiklitest kummastki kaks koondfaili - uudised ja arvamus
 
-paste uudised_2006.txt uudised_2007.txt uudised_2008.txt uudised_2009.txt \
+cat uudised_2006.txt uudised_2007.txt uudised_2008.txt uudised_2009.txt \
 |uudised_2010.txt uudised_2011.txt uudised_2012.txt uudised_2013.txt uudised_2014.txt \
 |uudised_2015.txt uudised_2016.txt > Haaretz_uudised.txt 
 
-paste opinion_2006.txt opinion_2007.txt opinion_2008.txt opinion_2009.txt \
+cat opinion_2006.txt opinion_2007.txt opinion_2008.txt opinion_2009.txt \
 |opinion_2010.txt opinion_2011.txt opinion_2012.txt opinion_2013.txt opinion_2014.txt \
 |opinion_2015.txt opinion_2016.txt > Haaretz_arvamus.txt
 
-paste Post_uudised_2006.txt Post_uudised_2007.txt Post_uudised_2008.txt Post_uudised_2009.txt \
+cat Post_uudised_2006.txt Post_uudised_2007.txt Post_uudised_2008.txt Post_uudised_2009.txt \
 |Post_uudised_2010.txt Post_uudised_2011.txt Post_uudised_2012.txt Post_uudised_2013.txt \
 |Post_uudised_2014.txt Post_uudised_2015.txt Post_uudised_2016.txt > Post_uudised.txt
 
-paste Opinion_2006.txt Opinion_2007.txt Opinion_2008.txt Opinion_2009.txt Opinion_2010.txt \
+cat Opinion_2006.txt Opinion_2007.txt Opinion_2008.txt Opinion_2009.txt Opinion_2010.txt \
 |Opinion_2011.txt Opinion_2012.txt Opinion_2013.txt Opinion_2014.txt \
 |Opinion_2015.txt Opinion_2016.txt > Post_arvamus.txt
 
 # Loon mõlema lehe kohta koondfailid
 
-paste Post_arvamus.txt Post_uudised.txt > KOIK_Post.txt
-paste Haaretz_arvamus.txt Haaretz_uudised.txt > KOIK_Haaretz.txt
+cat Post_arvamus.txt Post_uudised.txt > KOIK_Post.txt
+cat Haaretz_arvamus.txt Haaretz_uudised.txt > KOIK_Haaretz.txt
