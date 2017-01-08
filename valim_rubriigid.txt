@@ -126,3 +126,8 @@ cat Post_Opinion_2006.txt Post_Opinion_2007.txt Post_Opinion_2008.txt Post_Opini
 
 cat Post_opinion.txt Post_news.txt > ALL_Post.txt
 cat Haaretz_opinion.txt Haaretz_news.txt > ALL_Haaretz.txt
+
+# Loon faili kogu valimi kohta
+
+cat ALL_Post.txt ALL_Haaretz.txt > ALL.txt
+
