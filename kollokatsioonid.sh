@@ -16,7 +16,7 @@ grep -v '<.*>' \
 | grep 'apartheid' \
 | tr '[A-Z]' '[a-z]' \
 | sed 's/$/#/' \
-| tr -d '\.\,\?\!\:\"\“\”\-\(\)\;' \
+| tr -d '\.\,\?\!\:\"\“\”\(\)\;' \
 | tr ' ' '\n' \
 | grep -v '^$' \
 | sed 's/#/\n\n\n\n\n/' > read.txt
@@ -41,10 +41,13 @@ paste read.txt read-6.txt >> paarid.txt
 
 # Analüüsime ainult neid sõnapaare, milles sisaldub sõna "apartheid".
 # Asendame need tulemused, kus paare ei moodustunud, märgiga # ja siis kustutame need read.
-# Asendame paaride vahed reavahega, et jätta analüüsiks alles vaid sõnaga "apartheid" koos esinevad.
-# Kustutame read, kus on sees sõna aparteheid.
-# Kustutame tühjaks jäänud read.
+# Analüüsime ainult neid sõnapaare, milles sisaldub sõna "apartheid".
+# Asendame need tulemused, kus paare ei moodustunud, märgiga # ja siis kustutame need read.
+# Asendame paaride vahed reavahega, et jätta analüüsiks alles vaid sõnaga "apartheid" koos esinevad sõnad.
+# Kustutame tühjaks jäänud read / jätame alles vaid read, kus on sõnad.
 # Kasutame stoppsõnade nimekirja selleks, et kustutada sidesõnad jm analüüsis ebaolulised sõnad.
+# Kustutame sõnad, mis tulemuses pole olulised ning mida stoppsõnade nimekiri ei eemaldanud.
+# Muudame eri käänetes ja pööretes sõnad üheks sõnaks, et analüüs oleks täpsem.
 # Sorteerime tulemused esinemise sageduse järjekorras.
 
 cat paarid.txt \
@@ -53,7 +56,56 @@ cat paarid.txt \
 | sed 's/^\t.*apartheid.*$/#/' \
 | grep -v '#' \
 | tr '\t' '\n' \
-| grep -v 'apartheid' \
-| grep -v '^$' \
 | grep -vwf stop.txt \
+| grep -v 'apartheid' \
+| sed 's/african/africa/' \
+| sed 's/africas/africa/' \
+| sed 's/policies/policy/' \
+| sed 's/boycotts/boycott/' \
+| sed 's/racist/racism/' \
+| sed 's/racists/racism/' \
+| sed 's/boycotting/boycott/' \
+| sed 's/boycotts/boycott/' \
+| sed 's/israeli/israel/' \
+| sed 's/israels/israel/' \
+| sed 's/palestinians/palestinian/' \
+| sed 's/calling/call/' \
+| sed 's/calls/call/' \
+| sed 's/called/call/' \
+| sed 's/accusations/accuse/' \
+| sed 's/comparing/compare/' \
+| sed 's/compared/compare/' \
+| sed 's/compares/compare/' \
+| sed 's/comparison/compare/' \
+| sed 's/charges/charge/' \
+| sed 's/leading/lead/' \
+| sed 's/campaigns/campaign/' \
+| sed 's/occupied/occupation/' \
+| sed 's/universities/university/' \
+| sed 's/crimes/crime/' \
+| sed 's/arabs/arab/' \
+| sed 's/supporting/support/' \
+| sed 's/supported/support/' \
+| sed 's/supports/support/' \
+| sed 's/reasons/reason/' \
+| sed 's/zionist/zionism/' \
+| sed 's/claims/claim/' \
+| sed 's/accused/accuse/' \
+| sed 's/accusing/accuse/' \
+| sed 's/accusation/accuse/' \
+| sed 's/accusations/accuse/' \
+| sed 's/accuses/accuse/' \
+| sed 's/occupying/occupy/' \
+| sed 's/roads/road/' \
+| sed 's/created/create/' \
+| sed 's/creates/create/' \
+| sed 's/falsely/false/' \
+| sed 's/movements/movement/' \
+| sed 's/practices/practice/' \
+| sed 's/colonial/colonialism/' \
+| sed 's/promoting/promote/' \
+| sed 's/discriminatory/discriminate/' \
+| grep -v '^$' \
+| grep '[a-z]' \
 | sort | uniq -c | sort -nr
+

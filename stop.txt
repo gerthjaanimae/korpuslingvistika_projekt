@@ -1,5 +1,8 @@
-a
-able
+﻿a
+apartheidin
+apartheidthe
+'apartheid'
+apartheid]
 about
 above
 abst
@@ -19,6 +22,12 @@ afterwards
 again
 ah
 all
+a
+during
+apartheid'
+apartheid-
+will
+under
 almost
 alone
 along
@@ -47,7 +56,6 @@ approximately
 are
 aren
 arent
-arise
 around
 as
 aside
@@ -55,7 +63,6 @@ ask
 asking
 at
 auth
-available
 away
 awfully
 b
@@ -69,13 +76,11 @@ becoming
 been
 before
 beforehand
-begin
 beginning
 beginnings
 begins
 behind
 being
-believe
 below
 beside
 besides
@@ -88,6 +93,7 @@ briefly
 but
 by
 c
+told
 ca
 came
 can
@@ -120,7 +126,6 @@ don't
 down
 downwards
 due
-during
 e
 each
 ed
@@ -210,7 +215,6 @@ him
 himself
 his
 hither
-home
 how
 howbeit
 however
@@ -221,15 +225,10 @@ ie
 if
 i'll
 im
-immediate
-immediately
-importance
-important
 in
 inc
 indeed
 index
-information
 instead
 into
 invention
@@ -379,17 +378,9 @@ particularly
 past
 per
 perhaps
-placed
 please
 plus
-poorly
-possible
-possibly
-potentially
 pp
-predominantly
-present
-previously
 primarily
 probably
 promptly
@@ -422,7 +413,6 @@ respectively
 resulted
 resulting
 results
-right
 run
 s
 said
@@ -435,10 +425,6 @@ sec
 section
 see
 seeing
-seem
-seemed
-seeming
-seems
 seen
 self
 selves
@@ -457,10 +443,6 @@ showed
 shown
 showns
 shows
-significant
-significantly
-similar
-similarly
 since
 six
 slightly
@@ -482,15 +464,12 @@ specified
 specify
 specifying
 still
-strongly
 sub
-substantially
 successfully
 such
 sufficiently
-suggest
 sup
-sure	t
+suret
 take
 taken
 taking
@@ -561,7 +540,6 @@ twice
 two
 u
 un
-under
 unfortunately
 unless
 unlike
@@ -635,20 +613,21 @@ whos
 whose
 why
 widely
-will
 willing
 wish
 with
 within
 without
 wont
+won´t
 words
 world
 would
 wouldnt
+wrote
 www
 x
-y
+y will 
 yes
 yet
 you
@@ -662,3 +641,4 @@ yourselves
 you've
 z
 zero
+will	
