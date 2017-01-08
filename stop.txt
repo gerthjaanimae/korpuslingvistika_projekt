@@ -17,7 +17,6 @@ affects
 after
 afterwards
 again
-against
 ah
 all
 almost
@@ -483,7 +482,6 @@ specified
 specify
 specifying
 still
-stop
 strongly
 sub
 substantially
@@ -637,6 +635,7 @@ whos
 whose
 why
 widely
+will
 willing
 wish
 with
