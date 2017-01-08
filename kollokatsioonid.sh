@@ -54,5 +54,5 @@ cat paarid.txt \
 | grep -v '^$' \
 | tr '\t' '\n' \
 | grep -v 'apartheid' \
-| grep -vwf apartheid-stoppsonad.txt \
+| grep -vwf stop.txt \
 | sort | uniq -c | sort -nr
