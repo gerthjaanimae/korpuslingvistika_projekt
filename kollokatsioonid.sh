@@ -41,8 +41,9 @@ paste read.txt read-6.txt >> paarid.txt
 
 # Analüüsime ainult neid sõnapaare, milles sisaldub sõna "apartheid".
 # Asendame need tulemused, kus paare ei moodustunud, märgiga # ja siis kustutame need read.
-# Kustutame tühjaks jäänud read.
 # Asendame paaride vahed reavahega, et jätta analüüsiks alles vaid sõnaga "apartheid" koos esinevad.
+# Kustutame read, kus on sees sõna aparteheid.
+# Kustutame tühjaks jäänud read.
 # Kasutame stoppsõnade nimekirja selleks, et kustutada sidesõnad jm analüüsis ebaolulised sõnad.
 # Sorteerime tulemused esinemise sageduse järjekorras.
 
@@ -51,8 +52,8 @@ cat paarid.txt \
 | sed 's/^.*apartheid.*\t$/#/' \
 | sed 's/^\t.*apartheid.*$/#/' \
 | grep -v '#' \
-| grep -v '^$' \
 | tr '\t' '\n' \
 | grep -v 'apartheid' \
+| grep -v '^$' \
 | grep -vwf stop.txt \
 | sort | uniq -c | sort -nr
