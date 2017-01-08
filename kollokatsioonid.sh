@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# Asendame mitte-suurtähele järgneva lauselõpumärgi ja suure algustähe vahel oleva tühiku reavahega. See lahendab ka eesnimede lühendamise probleemi.
+# Asendame mitte-suurtähele järgneva lauselõpumärgi ja suure algustähe vahel oleva tühiku reavahega$
 # Seejärel teeme sama jutumärkidega.
-# Võtame analüüsi laused, kus sisaldub sõna "apartheid"
+# Võtame analüüsi laused, kus sisaldub sõna "apartheid".
+# Kustutame teksti osasid tähistavad märgendid.
 # Asendame realõpud märgiga #, et hiljem saaks sõnapaaride analüüsis piirduda ühe lausega.
 # Kustutame üleliigsed märgendid.
 # Asendame tühikud reavahetustega, et igal real oleks üks sõna.
@@ -13,13 +14,14 @@ sed 's/\([^A-Z][.!?]\) \([A-Z0-9]\)/\1\n\2/g' \
 | sed 's/\([.!?]\) \([“]\)/\1\n\2/g' \
 | grep 'apartheid' \
 | tr '[A-Z]' '[a-z]' \
+| grep -v '<.*>' \
 | sed 's/$/#/' \
 | tr -d '\.\,\?\!\:\"\“\”\-\(\)\;' \
 | tr ' ' '\n' \
 | grep -v '^$' \
 | sed 's/#/\n\n\n\n\n/' > read.txt
 
-# Kustutame faili esimese sõna ja kordan seda tegevust veel viis korda, et analüüsitavate sõnapaaride vahel oleks 0-5 sõna.
+# Kustutame faili esimese sõna ja kordan seda tegevust veel viis korda, et analüüsitavate sõnapaari$
 
 cat read.txt | tail -n +2 > read-1.txt
 cat read.txt | tail -n +3 > read-2.txt
@@ -39,7 +41,8 @@ paste read.txt read-6.txt >> paarid.txt
 
 # Analüüsime ainult neid sõnapaare, milles sisaldub sõna "apartheid".
 # Asendame need tulemused, kus paare ei moodustunud, märgiga # ja siis kustutame need read.
-# Asendame paaride vahed reavahega, et jätta analüüsiks alles vaid sõnaga "apartheid" koos esinevad sõnad.
+# Asendame paaride vahed reavahega, et jätta analüüsiks alles vaid sõnaga "apartheid" koos esinevad$
+# Kasutame stoppsõnade nimekirja selleks, et kustutada sidesõnad jm analüüsis ebaolulised sõnad.
 # Sorteerime tulemused esinemise sageduse järjekorras.
 
 cat paarid.txt \
@@ -49,4 +52,5 @@ cat paarid.txt \
 | grep -v '#' \
 | tr '\t' '\n' \
 | grep -v 'apartheid' \
+| grep -vwf apartheid-stoppsonad.txt \
 | sort | uniq -c | sort -nr
