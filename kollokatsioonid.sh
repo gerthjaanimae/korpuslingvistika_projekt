@@ -1,20 +1,20 @@
 #!/bin/bash
 
-# Asendame mitte-suurtähele järgneva lauselõpumärgi ja suure algustähe vahel oleva tühiku reavahega$
+# Kustutame teksti osasid tähistavad märgendid.
+# Üks lause ühele reale: asendame mitte-suurtähele järgneva lauselõpumärgi ja suure algustähe vahel oleva tühiku reavahega.
 # Seejärel teeme sama jutumärkidega.
 # Võtame analüüsi laused, kus sisaldub sõna "apartheid".
-# Kustutame teksti osasid tähistavad märgendid.
 # Asendame realõpud märgiga #, et hiljem saaks sõnapaaride analüüsis piirduda ühe lausega.
 # Kustutame üleliigsed märgendid.
 # Asendame tühikud reavahetustega, et igal real oleks üks sõna.
 # Kustutame tühjaks jäänud read.
 # Lisame iga lause lõppu neli tühikut, et oleks võimalik moodustada sõnapaare.
 
-sed 's/\([^A-Z][.!?]\) \([A-Z0-9]\)/\1\n\2/g' \
+grep -v '<.*>' \
+| sed 's/\([^A-Z][.!?]\) \([A-Z0-9]\)/\1\n\2/g' \
 | sed 's/\([.!?]\) \([“]\)/\1\n\2/g' \
 | grep 'apartheid' \
 | tr '[A-Z]' '[a-z]' \
-| grep -v '<.*>' \
 | sed 's/$/#/' \
 | tr -d '\.\,\?\!\:\"\“\”\-\(\)\;' \
 | tr ' ' '\n' \
