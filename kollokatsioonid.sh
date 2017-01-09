@@ -41,13 +41,14 @@ paste read.txt read-6.txt >> paarid.txt
 
 # Analüüsime ainult neid sõnapaare, milles sisaldub sõna "apartheid".
 # Asendame need tulemused, kus paare ei moodustunud, märgiga # ja siis kustutame need read.
+# Analüüsime ainult neid sõnapaare, milles sisaldub sõna "apartheid".
+# Asendame need tulemused, kus paare ei moodustunud, märgiga # ja siis kustutame need read.
 # Asendame paaride vahed reavahega, et jätta analüüsiks alles vaid sõnaga "apartheid" koos esinevad sõnad.
+# Kustutame tühjaks jäänud read / jätame alles vaid read, kus on sõnad.
 # Kasutame stoppsõnade nimekirja selleks, et kustutada sidesõnad jm analüüsis ebaolulised sõnad.
 # Kustutame sõnad, mis tulemuses pole olulised ning mida stoppsõnade nimekiri ei eemaldanud.
-# Muudame eri käänetes ja pööretes sõnad ning ainsuses ja mitmuses sõnad üheks sõnaks, et analüüs oleks täpsem ja kordusi vähem.
-# Kustutame tühjaks jäänud read / jätame alles vaid read, kus on sõnad.
-# Sorteerime tulemused esinemise sageduse järjekorras.'
-
+# Muudame eri käänetes ja pööretes sõnad üheks sõnaks, et analüüs oleks täpsem.
+# Sorteerime tulemused esinemise sageduse järjekorras.
 
 cat paarid.txt \
 | grep '[^\t]*apartheid[^\t]*' \
