@@ -45,18 +45,18 @@ def processArticle(url):
 		return 1
 	#Puhastame artikli sodist, nagu reklaambännerid jms.
 	for tag in article.find_all('div', attrs={'class': 'article-box-banner-wrap'}):
-		tag.replaceWith('')
+		tag.replaceWith('\n')
 	for tag in article.find_all('div', attrs={'class': 'ClickFacebookLike'}):
-		tag.replaceWith('')
+		tag.replaceWith('\n')
 	for tag in article.find_all('div', attrs={'class': 'msgtext'}):
-		tag.replaceWith('')
+		tag.replaceWith('\n')
 	for tag in article.find_all('div', attrs={'class': 'middle-script'}):
-		tag.replaceWith('')
+		tag.replaceWith('\n')
 	for tag in article.find_all('script'):
-		tag.replaceWith('')
+		tag.replaceWith('\n')
 	
 	for tag in article.find_all('div', attrs={'span class': 'topicBoxSpan ignoreOnModeling'}):
-		tag.replaceWith('')
+		tag.replaceWith('\n')
 	#VÕtame ainult teksti välja ja eemaldame html märgendid.	
 	article=article.getText()
 	#Kuna mingit osa sodist ei õnnestunud viisakalt eemaldada, siis teeme seda jõuga.
