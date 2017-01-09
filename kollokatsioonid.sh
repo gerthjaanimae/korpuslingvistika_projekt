@@ -21,7 +21,7 @@ grep -v '<.*>' \
 | grep -v '^$' \
 | sed 's/#/\n\n\n\n\n/' > read.txt
 
-# Kustutame faili esimese sõna ja kordan seda tegevust veel viis korda, et analüüsitavate sõnapaari$
+# Kustutame faili esimese sõna ja kordan seda tegevust veel viis korda, et moodustuks analüüsitavad sõnapaarid.
 
 cat read.txt | tail -n +2 > read-1.txt
 cat read.txt | tail -n +3 > read-2.txt
